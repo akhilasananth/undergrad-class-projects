@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id = "mainFrame" class="springexample.XMLImplementation.MyJFrame" init-method="init">
+       <property name="title" > <value> Spring Example</value></property>
+        <property name="contentPane"><ref bean = "mainPanel"/> </property>
+    </bean>
+
+    <bean id="mainPanel" class="springexample.XMLImplementation.MyJPanel" init-method="init">
+        <property name="axis"><value>1</value> </property>
+        <property name="panelComponents">
+            <list>
+                <ref bean="buddyName"/>
+                <ref bean="buddyNumber"/>
+                <ref bean="buddyEMail"/>
+                <ref bean="AddressBook"/>
+                <ref bean="buttonPanel"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="AddressBook" class="springexample.XMLImplementation.MyJPanel" init-method="init">
+        <property name="axis"><value>1</value> </property>
+        <property name="panelComponents">
+            <list>
+                <ref bean="buddies"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="buddies" class="springexample.XMLImplementation.MyJTextField" init-method="init"/>
+    <bean id="buddyEMail" class="springexample.XMLImplementation.MyJTextField" init-method="init"/>
+
+    <bean id="buttonPanel" class="springexample.XMLImplementation.MyJPanel" init-method="init">
+        <property name="axis"><value>0</value></property>
+        <property name="panelComponents">
+            <list>
+                <ref bean="button1"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="buddyName" class="springexample.XMLImplementation.MyJTextField" init-method="init">
+        <property name="text">
+            <value>Enter Name</value>
+        </property>
+    </bean>
+    <bean id="buddyNumber" class="springexample.XMLImplementation.MyJTextField" init-method="init">
+        <property name="text">
+            <value>Enter Phone Number</value>
+        </property>
+    </bean>
+    <bean id="button1" class="springexample.XMLImplementation.MyJButton" init-method="init">
+        <property name="actionListener">
+            <ref bean="myButtonActionListener"/>
+        </property>
+
+        <property name="text">
+            <value>Add Buddy!</value>
+        </property>
+    </bean>
+
+    <bean id="myButtonActionListener" class="springexample.XMLImplementation.MyActionListener">
+        <property name="nameText">
+            <ref bean="buddyName"/>
+        </property>
+
+        <property name="NumberText">
+            <ref bean="buddyNumber"/>
+        </property>
+
+        <property name="EMailText">
+            <ref bean="buddyEMail"/>
+        </property>
+
+        <property name="buddies">
+            <ref bean="buddies"/>
+        </property>
+
+
+    </bean>
+
+</beans>
+
+
+
+

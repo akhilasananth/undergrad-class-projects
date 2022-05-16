@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Display list of users</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Users </h1>
+    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+
+    <ul th:each="user : ${allUsers}">
+        <a th:href="@{/users/{userhandle}(userhandle=${user.handle})}"><li><span th:text=" ${user}"/></li> </a>
+    </ul>
+    <a href="/user-creation">Create another User</a>
+
+<a href="/home">Return to homepage</a>
+
+</body>
+</html>

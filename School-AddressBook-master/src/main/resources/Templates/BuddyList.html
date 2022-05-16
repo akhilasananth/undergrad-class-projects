@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Display list of buddies</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Buddies in the Address Book: </h1>
+    <form action="#" th:action="@{/buddyList}" th:object="${buddyList}" method="post">
+        <p th:text=" ${allBuddies}" />
+
+    </form>
+</body>
+</html>

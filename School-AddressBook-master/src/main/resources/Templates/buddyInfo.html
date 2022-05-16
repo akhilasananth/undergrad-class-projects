@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Add Buddies to Address Book</h1>
+<form action="#" th:action="@{/buddyInfo}" th:object="${buddyInfo}" method="post">
+    <h2>Please enter buddy information</h2>
+        <p>Name: <input type="text" th:field="*{name}" /></p>
+        <p>Phone Number: <input type="text" th:field="*{phoneNumber}" /></p>
+        <p>E-mail address: <input type="text" th:field="*{emailAddress}" /></p>
+        <p><input type="submit" value="Add Buddy" /></p>
+</form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+    <h1 th:text=" ${user}" />
+    <a th:href="@{/users/{userhandle}/ama-creation(userhandle=${user.handle})}">Create AMA</a>
+    <a th:href="@{/users/{userhandle}/amas(userhandle=${user.handle})}"> Link to AMAs</a>
+
+    <a href="/users">Back to User List</a>
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+
+</body>
+</html>
